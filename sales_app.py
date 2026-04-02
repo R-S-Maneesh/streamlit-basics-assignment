@@ -9,17 +9,17 @@ data = {
     'Category': ['Electronics', 'Electronics', 'Electronics', 'Furniture', 'Furniture', 'Electronics'],
     'Sales': [1200, 45, 130, 250, 400, 300]
 }
-df = pd.DataFrame(data)
+data_frame = pd.DataFrame(data)
 
 st.sidebar.header("Filter Options")
-categories = df['Category'].unique()
+categories = data_frame['Category'].unique()
 selected_category = st.sidebar.selectbox("Select a Category:", categories)
 
-filtered_df = df[df['Category'] == selected_category]
+filtered_frame = data_frame[data_framef['Category'] == selected_category]
 
 st.write(f"### Data for {selected_category}")
-st.dataframe(filtered_df)
+st.dataframe(filtered_frame)
 
 st.write("### Sales Chart")
-chart_data = filtered_df.set_index('Product')['Sales']
+chart_data = filtered_frame.set_index('Product')['Sales']
 st.line_chart(chart_data)
